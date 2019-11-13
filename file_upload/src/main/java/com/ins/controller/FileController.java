@@ -40,7 +40,8 @@ import com.ins.service.FileStorageService;
 
 
 
-@RestController("/api")
+@RestController
+@RequestMapping("api")
 public class FileController {
 	private static final Logger logger = LoggerFactory.getLogger(FileController.class);
 
@@ -55,7 +56,7 @@ public class FileController {
     	String fileName = fileStorageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/downloadFile/")
+                .path("/api/downloadFile/")
                 .path(fileName)
                 .toUriString();
        
